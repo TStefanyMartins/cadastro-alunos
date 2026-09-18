@@ -1,4 +1,5 @@
 alunos = []
+
 def cadastrar():
     nome = input("Nome do aluno: ").strip()
     if nome == "":
@@ -7,10 +8,10 @@ def cadastrar():
     for aluno in alunos:
         if aluno.lower() == nome.lower():
             print("Aluno já cadastrado.")
-        return
+            return
     alunos.append(nome)
     print("Aluno cadastrado.")
-
+    
 def listar():
     if len(alunos) == 0:
         print("Nenhum aluno cadastrado.")
@@ -22,12 +23,14 @@ def listar():
 
 def buscar():
     termo = input("Nome completo para buscar: ").strip()
+    if termo == "":
+        print("Digite um nome para buscar.")
+        return
     for aluno in alunos:
         if aluno.lower() == termo.lower():
             print(f"Encontrado: {aluno}")
             return
     print("Aluno não encontrado.")
-    return
 
 while True:
     print("\n--- CADASTRO DE ALUNOS ---")
